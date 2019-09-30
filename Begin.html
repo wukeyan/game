@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <embed src="./music/click4.mp3" hidden=true type="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .exspan {
+            font-size: 35px;
+            text-indent: 25px;
+        }
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: rgb(243, 241, 241);
+            background-image: url(./img/timg12.jpg);
+            background-size: 100% 100%;
+            background-repeat: none;
+        }
+        .game span {
+            font-size: 40px;
+        }
+        .game span:hover {
+            font-size: 44px;
+     
+        }
+        .game span a{
+           font-weight: bold;
+            color: yellow;
+            text-decoration: none;
+        }
+        .game span a:hover {
+            color: red;
+     
+        }
+        .explain div {
+            width: 500px;
+            height: 150px;
+            margin: 10px auto;
+        }
+
+        .game {
+            position: absolute;
+            left: 40%;
+            top: 450px;
+            width: 200px;
+            height: 80px;
+            border: 1px solid #000;
+            background-image: url(./img/timg15.gif);
+            background-size: 150px 80px;
+            background-repeat: none;
+        }
+
+        .Span {
+            margin-top: 13px;
+            margin-left: 20px;
+        }
+
+        .Oimg img {
+            width: 300px;
+        }
+
+        .All {
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="Oul"></ul>
+    <div class="All">
+        <div class="explain">
+            <div>
+                <h1 style=" font-size: 40px;">游戏规则：</h1><span class="exspan">
+                   </span>
+            </div>
+
+        </div>
+        <div class="Oimg">
+            <img src="./img/bird.gif" alt="">
+            <div class="game">
+                <div class="Span"><span><a href="./html/game.html">开始游戏</a></span></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        var exspan = document.querySelector('.exspan');
+        var Oul = document.querySelector('.Oul');
+        var String = ['在游戏中，请将中间方框里的垃</br>圾图标根据自身垃圾的性质，将</br>垃圾用鼠标点击拖动到相应的干</br>垃圾,湿垃圾,有害垃圾以及其它</br>垃圾四个白色或灰色方框中央堆积起来，分类成功即可得分（满</br>分100），加油  ！！！']
+        function show(str) {
+            for (let i = 0; i < str.length; i++) {
+                let Timer = setTimeout(function () {
+                    let string = str.slice(0, i);
+                    exspan.innerHTML = string;
+                    var Oaudio = document.createElement('audio');
+                    Oul.appendChild(Oaudio)
+                    Oaudio.innerHTML = `<source src="./music/click4.mp3" type="audio/mpeg" />  `;
+                    Oaudio.play();
+                    clearTimeout(Timer);
+                }, 60 * i)
+            }
+        }
+        show(String[0]);
+    </script>
+</body>
+
+</html>
